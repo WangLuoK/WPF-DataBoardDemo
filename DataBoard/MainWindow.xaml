@@ -1,0 +1,89 @@
+﻿<Window x:Class="DataBoard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataBoard"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Background="#29282D"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{Binding Source={StaticResource Locator},Path=Main}"
+        Title="MainWindow" Height="700" Width="1200">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="45"/>
+        <!--设置标题区域高度-->
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Border Grid.RowSpan="2" Background="#29282D">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="0" Color="Black" Opacity="0.5"/>
+            </Border.Effect>
+        </Border>
+
+        <Border Grid.ColumnSpan="2" BorderBrush="#313134" BorderThickness=" 0 0 0 2">
+        </Border>
+        
+        <Border Background="#0C7D95">
+            <TextBlock Text="数据看板" FontSize="24" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="{Binding SystemTime}" FontSize="15" Foreground="White" Margin="0 0 15 0" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        </Grid>
+
+        <!--menu grid-->
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <!--menu -->
+            <StackPanel>
+                <RadioButton Click="RadioButton_Click"  Uid="IndexView" Content="首页" Tag="&#xf015;" Style="{StaticResource RadioButtonMenuStyle}"/>
+                <RadioButton Click="RadioButton_Click"  Uid="LineView" Content="生产线" Tag="&#xf0ae;" Style="{StaticResource RadioButtonMenuStyle}"/>
+                <RadioButton Click="RadioButton_Click"  Uid="HistoryView" Content="停机数据" Tag="&#xf0ae;" Style="{StaticResource RadioButtonMenuStyle}"/>
+                <RadioButton Click="RadioButton_Click"  Uid="SubLineView" Content="子线" Tag="&#xf1a4;" Style="{StaticResource RadioButtonMenuStyle}"/>
+                <RadioButton Click="RadioButton_Click"  Uid="StopTypeView" Content="停机类型" Tag="&#xf208;" Style="{StaticResource RadioButtonMenuStyle}"/>
+                <RadioButton Click="RadioButton_Click"  Uid="UserInfoView" Content="用户" Tag="&#xf2be;" Style="{StaticResource RadioButtonMenuStyle}"/>
+                
+            </StackPanel>
+            <!--menu exit-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="AUTO"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Tag="&#xf2bd;" 
+                        Margin="5 5 5 20"
+                        Content="{Binding AppData.CurrentUser.Name}" 
+                        Style="{StaticResource HomePageButtonStyle}">
+
+                </Button>
+                <Button Grid.Column="1" 
+                        Margin="5 5 5 20"
+                        Tag="&#xf011;" 
+                        Content="退出" 
+                        Style="{StaticResource HomePageButtonStyle}"
+                        Command="{Binding ExitCommand}"
+                        >
+
+                </Button>
+            </Grid>
+        </Grid>
+        <ContentControl x:Name="container" Grid.Column="1" Grid.Row="1"/>
+    </Grid>
+</Window>

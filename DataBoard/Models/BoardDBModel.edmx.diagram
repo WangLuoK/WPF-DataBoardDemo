@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c27cbb2f2e74457c9bbe59f9ce8233f1" Name="Diagram1">
+        <EntityTypeShape EntityType="BoardDBModel.History" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="BoardDBModel.Line" Width="1.5" PointX="0.75" PointY="11.375" />
+        <EntityTypeShape EntityType="BoardDBModel.StopType" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="BoardDBModel.SubLine" Width="1.5" PointX="0.75" PointY="8.625" />
+        <EntityTypeShape EntityType="BoardDBModel.UserInfo" Width="1.5" PointX="0.75" PointY="5.625" />
+        <AssociationConnector Association="BoardDBModel.FK_History_Line" />
+        <AssociationConnector Association="BoardDBModel.FK_History_StopType" />
+        <AssociationConnector Association="BoardDBModel.FK_History_SubLine" />
+        <AssociationConnector Association="BoardDBModel.FK_History_UserInfo" />
+        <AssociationConnector Association="BoardDBModel.FK_Line_UserInfo" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
