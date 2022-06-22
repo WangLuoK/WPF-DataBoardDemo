@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\VS2019Work\DataBoard\DataBoard\App.xaml
-121026511296
+15733503623
 2479639581
-35-2082830013
+39-1792169809
 127-416148645
-Dictionary\ButtonDictionary.xaml;Dictionary\RadioButtonDictionary.xaml;Dictionary\TextBoxDictionary.xaml;MainWindow.xaml;Views\HistoryView.xaml;Views\IndexView.xaml;Views\LineView.xaml;Views\LoginWindow.xaml;Views\StopTypeView.xaml;Views\SubLineView.xaml;Views\UserInfoView.xaml;Windows\Window1.xaml;
+Dictionary\ButtonDictionary.xaml;Dictionary\RadioButtonDictionary.xaml;Dictionary\TextBlockDictionary.xaml;Dictionary\TextBoxDictionary.xaml;MainWindow.xaml;Views\HistoryView.xaml;Views\IndexView.xaml;Views\LineView.xaml;Views\LoginWindow.xaml;Views\StopTypeView.xaml;Views\SubLineView.xaml;Views\UserInfoView.xaml;Windows\AddLineWindow.xaml;Windows\EditLineWindow.xaml;Windows\Window1.xaml;
 
-True
+False
 

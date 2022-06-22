@@ -1,4 +1,4 @@
-﻿E:\VS2019Work\DataBoard\DataBoard\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 FE:\VS2019Work\DataBoard\DataBoard\App.xaml;;
 FE:\VS2019Work\DataBoard\DataBoard\Dictionary\ButtonDictionary.xaml;;
 FE:\VS2019Work\DataBoard\DataBoard\MainWindow.xaml;;
@@ -9,5 +9,7 @@ FE:\VS2019Work\DataBoard\DataBoard\Views\LoginWindow.xaml;;
 FE:\VS2019Work\DataBoard\DataBoard\Views\StopTypeView.xaml;;
 FE:\VS2019Work\DataBoard\DataBoard\Views\SubLineView.xaml;;
 FE:\VS2019Work\DataBoard\DataBoard\Views\UserInfoView.xaml;;
+FE:\VS2019Work\DataBoard\DataBoard\Windows\AddLineWindow.xaml;;
+FE:\VS2019Work\DataBoard\DataBoard\Windows\EditLineWindow.xaml;;
 FE:\VS2019Work\DataBoard\DataBoard\Windows\Window1.xaml;;
 

@@ -53,3 +53,8 @@ E:\VS2019Work\DataBoard\DataBoard\obj\Debug\DataBoard.csproj.CoreCompileInputs.c
 E:\VS2019Work\DataBoard\DataBoard\obj\Debug\DataBoard.csproj.CopyComplete
 E:\VS2019Work\DataBoard\DataBoard\obj\Debug\DataBoard.exe
 E:\VS2019Work\DataBoard\DataBoard\obj\Debug\DataBoard.pdb
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddLineWindow.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditLineWindow.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddLineWindow.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditLineWindow.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Dictionary\TextBlockDictionary.baml

@@ -15,7 +15,11 @@ namespace DataBoard.Models.Provider
 
         public int Insert(Line t)
         {
-            throw new NotImplementedException();
+            using (BoardDBEntities db = new BoardDBEntities())
+            {
+                db.Entry(t).State = System.Data.Entity.EntityState.Added;
+                return db.SaveChanges();
+            }
         }
 
         public List<Line> Select()

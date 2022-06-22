@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataBoard.Windows;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
 
@@ -37,9 +38,23 @@ namespace DataBoard.Views
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// 弹框-自定义窗体
+        /// </summary>
+        /// <param name="message">窗体名称</param>
+        /// <param name="title"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public Task ShowMessage(string message, string title)
         {
-            throw new NotImplementedException();
+            switch (message)
+            {
+                case "AddLineWindow": new AddLineWindow().ShowDialog();break;
+                case "EditLineWindow":new EditLineWindow().ShowDialog();break;
+                default:
+                    break;
+            }
+            return null;
         }
 
         public Task ShowMessage(string message, string title, string buttonText, Action afterHideCallback)

@@ -43,6 +43,9 @@ namespace DataBoard.ViewModel
             SimpleIoc.Default.Register<StopTypeViewModel>();
             SimpleIoc.Default.Register<SubLineViewModel>();
             SimpleIoc.Default.Register<UserInfoViewModel>();
+            SimpleIoc.Default.Register<AddLineWindowViewModel>();
+            SimpleIoc.Default.Register<EditLineWindowViewModel>();
+
 
             SimpleIoc.Default.Register<HistoryView>();
             SimpleIoc.Default.Register<IndexView>();
@@ -51,7 +54,12 @@ namespace DataBoard.ViewModel
             SimpleIoc.Default.Register<SubLineView>();
             SimpleIoc.Default.Register<UserInfoView>();
 
+
+
         }
+
+        public AddLineWindowViewModel AddLine => ServiceLocator.Current.GetInstance<AddLineWindowViewModel>();
+        public EditLineWindowViewModel EditLine => ServiceLocator.Current.GetInstance<EditLineWindowViewModel>();
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
         public HistoryViewModel History => ServiceLocator.Current.GetInstance<HistoryViewModel>();

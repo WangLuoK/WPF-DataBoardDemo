@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using DataBoard.Models;
 using DataBoard.Models.Provider;
+using GalaSoft.MvvmLight.Command;
+using CommonServiceLocator;
+using GalaSoft.MvvmLight.Views;
 
 namespace DataBoard.ViewModel
 {
@@ -24,6 +27,18 @@ namespace DataBoard.ViewModel
         {
             get { return lines; }
             set { lines = value; RaisePropertyChanged(); }
+        }
+
+        public RelayCommand OpenAddLineWindowCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    var dialog = ServiceLocator.Current.GetInstance<IDialogService>();
+                    dialog.ShowMessage("AddLineWindow", "提示");
+                });
+            }
         }
 
     }
