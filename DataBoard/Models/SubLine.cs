@@ -23,9 +23,10 @@ namespace DataBoard.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int UserInfoId { get; set; }
-        public System.DateTime InsertId { get; set; }
+        public System.DateTime InsertDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<History> History { get; set; }
+        public virtual UserInfo UserInfo { get; set; }
     }
 }

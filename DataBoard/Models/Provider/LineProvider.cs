@@ -10,12 +10,16 @@ namespace DataBoard.Models.Provider
     {
         public int Delete(Line t)
         {
-            throw new NotImplementedException();
+            using (BoardDBEntities1 db = new BoardDBEntities1())
+            {
+                db.Entry(t).State = System.Data.Entity.EntityState.Deleted;
+                return db.SaveChanges();
+            }
         }
 
         public int Insert(Line t)
         {
-            using (BoardDBEntities db = new BoardDBEntities())
+            using (BoardDBEntities1 db = new BoardDBEntities1())
             {
                 db.Entry(t).State = System.Data.Entity.EntityState.Added;
                 return db.SaveChanges();
@@ -24,7 +28,7 @@ namespace DataBoard.Models.Provider
 
         public List<Line> Select()
         {
-            using (BoardDBEntities db = new BoardDBEntities())
+            using (BoardDBEntities1 db = new BoardDBEntities1())
             {
                 return db.Line.Include("UserInfo").ToList();
             }
@@ -32,7 +36,11 @@ namespace DataBoard.Models.Provider
 
         public int Update(Line t)
         {
-            throw new NotImplementedException();
+            using (BoardDBEntities1 db = new BoardDBEntities1())
+            {
+                db.Entry(t).State = System.Data.Entity.EntityState.Modified;
+                return db.SaveChanges();
+            }
         }
     }
 }

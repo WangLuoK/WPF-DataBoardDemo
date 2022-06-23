@@ -29,6 +29,9 @@ namespace DataBoard.ViewModel
             set { lines = value; RaisePropertyChanged(); }
         }
 
+        /// <summary>
+        /// 添加框
+        /// </summary>
         public RelayCommand OpenAddLineWindowCommand
         {
             get
@@ -37,6 +40,56 @@ namespace DataBoard.ViewModel
                 {
                     var dialog = ServiceLocator.Current.GetInstance<IDialogService>();
                     dialog.ShowMessage("AddLineWindow", "提示");
+                    Lines = lineProvider.Select();
+                });
+            }
+        }
+
+        /// <summary>
+        /// 修改框
+        /// </summary>
+        public RelayCommand<Line> OPenEditLineWindoeCommand
+        {
+            get 
+            {
+                return new RelayCommand<Line>((model) =>
+                {
+                    var result = ServiceLocator.Current.GetInstance<EditLineWindowViewModel>();
+                    if (result != null) result.Line = model;
+                    else return;
+                    var dialog = ServiceLocator.Current.GetInstance<IDialogService>();
+                    dialog.ShowMessage("EditLineWindow", "提示");
+                    Lines = lineProvider.Select();
+                });
+            }
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        public RelayCommand<Line> DeleteCommand
+        {
+            get
+            {
+                return new RelayCommand<Line>((model) =>
+                {
+                    if(model== null) return;
+                    var dialog = ServiceLocator.Current.GetInstance<IDialogService>();
+                    var task = dialog.ShowMessage("确认要删除吗？", "提示", "", () => {
+                        var count = lineProvider.Delete(model);
+                        if (count>0)
+                        {
+                            dialog.ShowMessageBox("删除成功", "提示");
+                            Lines = lineProvider.Select();
+                        }
+                        else
+                        {
+                            dialog.ShowMessageBox("删除失败", "提示");
+
+                        }
+                    });
+                    task.Start();
+                   
                 });
             }
         }

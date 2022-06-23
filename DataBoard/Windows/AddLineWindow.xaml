@@ -16,46 +16,48 @@
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="200" />
     </WindowChrome.WindowChrome>
+    <Border BorderBrush="White" BorderThickness="1">
+        <Grid>
+            <Grid Height=" 50" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Margin="10"
+                    FontSize="20"
+                    Foreground="White"
+                    Text="添加线段" />
+                <TextBlock
+                    Grid.Column="1"
+                    MouseUp="TextBlock_MouseUp"
+                    Style="{StaticResource TextBlockExitStyle}"
+                    WindowChrome.IsHitTestVisibleInChrome="True" />
+            </Grid>
 
-    <Grid>
+            <Grid Margin="30,40,30,40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox
+                    Grid.Column="0"
+                    Height="35"
+                    MaxLength="50"
+                    Text="{Binding Line.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    WindowChrome.IsHitTestVisibleInChrome="True" />
+                <Button
+                    Grid.Column="1"
+                    Margin="15"
+                    Command="{Binding AddLineCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:AddLineWindow}}"
+                    Content="添加"
+                    FontSize="18"
+                    Style="{StaticResource AddButtonStyle}"
+                    Tag="&#xf055;"
+                    WindowChrome.IsHitTestVisibleInChrome="True" />
 
-        <TextBlock
-            Margin="10"
-            FontSize="16"
-            Foreground="White"
-            Text="添加线段" />
-        <TextBlock
-            Margin="10"
-            HorizontalAlignment="Right"
-            FontFamily="/Fonts/#FontAwesome"
-            FontSize="20"
-            Foreground="White"
-            MouseUp="TextBlock_MouseUp"
-            Style="{StaticResource CloseTextBlockStyle}"
-            Text="&#xf00d;"
-            WindowChrome.IsHitTestVisibleInChrome="True" />
-
-
-        <Grid Margin="30,40,30,40">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
-            <TextBox
-                Grid.Column="0"
-                Height="35"
-                Text="{Binding Line.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                WindowChrome.IsHitTestVisibleInChrome="True" />
-            <Button
-                Grid.Column="1"
-                Margin="15"
-                Command="{Binding AddLineCommand}"
-                Content="添加"
-                FontSize="18"
-                Style="{StaticResource AddButtonStyle}"
-                Tag="&#xf055;"
-                WindowChrome.IsHitTestVisibleInChrome="True" />
-
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>

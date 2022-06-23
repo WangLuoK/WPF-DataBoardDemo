@@ -43,7 +43,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="UserInfoId" Type="int" Nullable="false" />
-          <Property Name="InsertId" Type="datetime" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="UserInfo">
           <Key>
@@ -91,6 +91,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_History_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="UserInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Line_UserInfo">
           <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
           <End Role="Line" Type="Self.Line" Multiplicity="*" />
@@ -99,6 +111,30 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Line">
+              <PropertyRef Name="UserInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StopType_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="StopType" Type="Self.StopType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StopType">
+              <PropertyRef Name="UserInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubLine_UserInfo">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="SubLine" Type="Self.SubLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubLine">
               <PropertyRef Name="UserInfoId" />
             </Dependent>
           </ReferentialConstraint>
@@ -121,16 +157,28 @@
             <End Role="SubLine" EntitySet="SubLine" />
             <End Role="History" EntitySet="History" />
           </AssociationSet>
+          <AssociationSet Name="FK_History_UserInfo" Association="Self.FK_History_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
           <AssociationSet Name="FK_Line_UserInfo" Association="Self.FK_Line_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="Line" EntitySet="Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StopType_UserInfo" Association="Self.FK_StopType_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="StopType" EntitySet="StopType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubLine_UserInfo" Association="Self.FK_SubLine_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="SubLine" EntitySet="SubLine" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BoardDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="BoardDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BoardDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="History" EntityType="BoardDBModel.History" />
           <EntitySet Name="Line" EntityType="BoardDBModel.Line" />
           <EntitySet Name="StopType" EntityType="BoardDBModel.StopType" />
@@ -155,6 +203,14 @@
           <AssociationSet Name="FK_Line_UserInfo" Association="BoardDBModel.FK_Line_UserInfo">
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="Line" EntitySet="Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StopType_UserInfo" Association="BoardDBModel.FK_StopType_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="StopType" EntitySet="StopType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubLine_UserInfo" Association="BoardDBModel.FK_SubLine_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="SubLine" EntitySet="SubLine" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="History">
@@ -194,6 +250,7 @@
           <Property Name="UserInfoId" Type="Int32" Nullable="false" />
           <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="History" Relationship="BoardDBModel.FK_History_StopType" FromRole="StopType" ToRole="History" />
+          <NavigationProperty Name="UserInfo" Relationship="BoardDBModel.FK_StopType_UserInfo" FromRole="StopType" ToRole="UserInfo" />
         </EntityType>
         <EntityType Name="SubLine">
           <Key>
@@ -202,8 +259,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UserInfoId" Type="Int32" Nullable="false" />
-          <Property Name="InsertId" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="History" Relationship="BoardDBModel.FK_History_SubLine" FromRole="SubLine" ToRole="History" />
+          <NavigationProperty Name="UserInfo" Relationship="BoardDBModel.FK_SubLine_UserInfo" FromRole="SubLine" ToRole="UserInfo" />
         </EntityType>
         <EntityType Name="UserInfo">
           <Key>
@@ -216,6 +274,8 @@
           <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="History" Relationship="BoardDBModel.FK_History_UserInfo" FromRole="UserInfo" ToRole="History" />
           <NavigationProperty Name="Line" Relationship="BoardDBModel.FK_Line_UserInfo" FromRole="UserInfo" ToRole="Line" />
+          <NavigationProperty Name="StopType" Relationship="BoardDBModel.FK_StopType_UserInfo" FromRole="UserInfo" ToRole="StopType" />
+          <NavigationProperty Name="SubLine" Relationship="BoardDBModel.FK_SubLine_UserInfo" FromRole="UserInfo" ToRole="SubLine" />
         </EntityType>
         <Association Name="FK_History_Line">
           <End Type="BoardDBModel.Line" Role="Line" Multiplicity="1" />
@@ -277,12 +337,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_StopType_UserInfo">
+          <End Type="BoardDBModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="BoardDBModel.StopType" Role="StopType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StopType">
+              <PropertyRef Name="UserInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubLine_UserInfo">
+          <End Type="BoardDBModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="BoardDBModel.SubLine" Role="SubLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubLine">
+              <PropertyRef Name="UserInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BoardDBModelStoreContainer" CdmEntityContainer="BoardDBEntities">
+        <EntityContainerMapping StorageEntityContainer="BoardDBModelStoreContainer" CdmEntityContainer="BoardDBEntities1">
           <EntitySetMapping Name="History">
             <EntityTypeMapping TypeName="BoardDBModel.History">
               <MappingFragment StoreEntitySet="History">
@@ -320,7 +404,7 @@
           <EntitySetMapping Name="SubLine">
             <EntityTypeMapping TypeName="BoardDBModel.SubLine">
               <MappingFragment StoreEntitySet="SubLine">
-                <ScalarProperty Name="InsertId" ColumnName="InsertId" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
                 <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

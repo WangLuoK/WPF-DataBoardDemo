@@ -58,3 +58,15 @@ E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditLineWindow.g.cs
 E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddLineWindow.baml
 E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditLineWindow.baml
 E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Dictionary\TextBlockDictionary.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddStopTypeWindow.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddSubLineWindow.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditStopTypeWindow.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditSubLineWindow.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddStopTypeWindow.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddSubLineWindow.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditStopTypeWindow.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditSubLineWindow.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddUserInfoWindow.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditUserInfoWindow.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddUserInfoWindow.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditUserInfoWindow.baml

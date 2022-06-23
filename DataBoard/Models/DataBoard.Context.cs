@@ -13,10 +13,10 @@ namespace DataBoard.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BoardDBEntities : DbContext
+    public partial class BoardDBEntities1 : DbContext
     {
-        public BoardDBEntities()
-            : base("name=BoardDBEntities")
+        public BoardDBEntities1()
+            : base("name=BoardDBEntities1")
         {
         }
     

@@ -10,12 +10,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DataBoard.ViewModel
 {
     public class AddLineWindowViewModel : ViewModelBase
     {
-        private Line line;
+        private Line line = new Line();
 
         public Line Line
         {
@@ -23,9 +24,14 @@ namespace DataBoard.ViewModel
             set { line = value; }
         }
 
-        public RelayCommand AddLineCommand
+        /// <summary>
+        /// 添加命令
+        /// </summary>
+        public RelayCommand<Window> AddLineCommand
         {
-            get { return new RelayCommand(() =>
+            get
+            {
+                return new RelayCommand<Window>((window) =>
             {
                 if (string.IsNullOrEmpty(Line.Name))
                 {
@@ -33,22 +39,24 @@ namespace DataBoard.ViewModel
                 }
                 if (Line.Name.Length > 50) return;
                 var appData = ServiceLocator.Current.GetInstance<AppData>();
-                Line.UserInfoId= appData.CurrentUser.Id;
+                Line.UserInfoId = appData.CurrentUser.Id;
                 Line.InsertDate = DateTime.Now;
                 LineProvider lineProvider = new LineProvider();
                 var count = lineProvider.Insert(Line);
-                if (count>0)
+                if (count > 0)
                 {
                     var dialog = ServiceLocator.Current.GetInstance<IDialogService>();
                     dialog.ShowMessageBox("添加成功", "提示");
-                   
+                    window.Close();
+                    this.Line = new Line();
                 }
                 else
                 {
                     var dialog = ServiceLocator.Current.GetInstance<IDialogService>();
                     dialog.ShowMessageBox("添加失败", "提示");
                 }
-            }); }
+            });
+            }
         }
     }
 }

@@ -81,40 +81,49 @@
     </ApplicationDefinition>
     <Compile Include="AppData.cs" />
     <Compile Include="Converter\HeightToCornerConverter.cs" />
-    <Compile Include="Models\BoardDBModel.Context.cs">
+    <Compile Include="Models\DataBoard.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BoardDBModel.Context.tt</DependentUpon>
+      <DependentUpon>DataBoard.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BoardDBModel.cs">
+    <Compile Include="Models\DataBoard.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BoardDBModel.tt</DependentUpon>
+      <DependentUpon>DataBoard.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BoardDBModel.Designer.cs">
+    <Compile Include="Models\DataBoard.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BoardDBModel.edmx</DependentUpon>
+      <DependentUpon>DataBoard.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\History.cs">
-      <DependentUpon>BoardDBModel.tt</DependentUpon>
+      <DependentUpon>DataBoard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Line.cs">
-      <DependentUpon>BoardDBModel.tt</DependentUpon>
+      <DependentUpon>DataBoard.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Provider\HistoryProvider.cs" />
     <Compile Include="Models\Provider\IProvider.cs" />
     <Compile Include="Models\Provider\LineProvider.cs" />
+    <Compile Include="Models\Provider\StopTypeProvider.cs" />
+    <Compile Include="Models\Provider\SubLineProvider.cs" />
     <Compile Include="Models\StopType.cs">
-      <DependentUpon>BoardDBModel.tt</DependentUpon>
+      <DependentUpon>DataBoard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SubLine.cs">
-      <DependentUpon>BoardDBModel.tt</DependentUpon>
+      <DependentUpon>DataBoard.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserInfo.cs">
-      <DependentUpon>BoardDBModel.tt</DependentUpon>
+      <DependentUpon>DataBoard.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AddLineWindowViewModel.cs" />
+    <Compile Include="ViewModel\AddStopTypeWindowViewModel.cs" />
+    <Compile Include="ViewModel\AddSubLineWindowViewModel.cs" />
+    <Compile Include="ViewModel\AddUserInfoWindowViewModel.cs" />
     <Compile Include="ViewModel\EditLineWindowViewModel.cs" />
+    <Compile Include="ViewModel\EditStopTypeWindowViewModel.cs" />
+    <Compile Include="ViewModel\EditSubLineWindowViewModel.cs" />
+    <Compile Include="ViewModel\EditUserInfoWindowViewModel.cs" />
     <Compile Include="ViewModel\HistoryViewModel.cs" />
     <Compile Include="ViewModel\IndexViewModel.cs" />
     <Compile Include="ViewModel\LineViewModel.cs" />
@@ -148,8 +157,26 @@
     <Compile Include="Windows\AddLineWindow.xaml.cs">
       <DependentUpon>AddLineWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddStopTypeWindow.xaml.cs">
+      <DependentUpon>AddStopTypeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddSubLineWindow.xaml.cs">
+      <DependentUpon>AddSubLineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddUserInfoWindow.xaml.cs">
+      <DependentUpon>AddUserInfoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditLineWindow.xaml.cs">
       <DependentUpon>EditLineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditStopTypeWindow.xaml.cs">
+      <DependentUpon>EditStopTypeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditSubLineWindow.xaml.cs">
+      <DependentUpon>EditSubLineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditUserInfoWindow.xaml.cs">
+      <DependentUpon>EditUserInfoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -214,7 +241,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\AddStopTypeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddSubLineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddUserInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\EditLineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditStopTypeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditSubLineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditUserInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,12 +295,12 @@
     <Resource Include="Fonts\FontAwesome.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <EntityDeploy Include="Models\BoardDBModel.edmx">
+    <EntityDeploy Include="Models\DataBoard.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BoardDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataBoard.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\BoardDBModel.edmx.diagram">
-      <DependentUpon>BoardDBModel.edmx</DependentUpon>
+    <None Include="Models\DataBoard.edmx.diagram">
+      <DependentUpon>DataBoard.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -260,17 +311,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Models\BoardDBModel.Context.tt">
+    <Content Include="Models\DataBoard.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BoardDBModel.Context.cs</LastGenOutput>
-      <DependentUpon>BoardDBModel.edmx</DependentUpon>
+      <DependentUpon>DataBoard.edmx</DependentUpon>
+      <LastGenOutput>DataBoard.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\BoardDBModel.tt">
+    <Content Include="Models\DataBoard.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BoardDBModel.edmx</DependentUpon>
-      <LastGenOutput>BoardDBModel.cs</LastGenOutput>
+      <DependentUpon>DataBoard.edmx</DependentUpon>
+      <LastGenOutput>DataBoard.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

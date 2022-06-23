@@ -45,6 +45,12 @@ namespace DataBoard.ViewModel
             SimpleIoc.Default.Register<UserInfoViewModel>();
             SimpleIoc.Default.Register<AddLineWindowViewModel>();
             SimpleIoc.Default.Register<EditLineWindowViewModel>();
+            SimpleIoc.Default.Register<AddSubLineWindowViewModel>();
+            SimpleIoc.Default.Register<EditSubLineWindowViewModel>();
+            SimpleIoc.Default.Register<AddStopTypeWindowViewModel>();
+            SimpleIoc.Default.Register<EditStopTypeWindowViewModel>();
+            SimpleIoc.Default.Register<AddUserInfoWindowViewModel>();
+            SimpleIoc.Default.Register<EditUserInfoWindowViewModel>();
 
 
             SimpleIoc.Default.Register<HistoryView>();
@@ -57,6 +63,12 @@ namespace DataBoard.ViewModel
 
 
         }
+        public EditUserInfoWindowViewModel EditUserInfoWindow => ServiceLocator.Current.GetInstance<EditUserInfoWindowViewModel>();
+        public AddUserInfoWindowViewModel AddUserInfoWindow => ServiceLocator.Current.GetInstance<AddUserInfoWindowViewModel>();
+        public AddSubLineWindowViewModel AddSubLine => ServiceLocator.Current.GetInstance<AddSubLineWindowViewModel>();
+        public EditSubLineWindowViewModel EditSubLine => ServiceLocator.Current.GetInstance<EditSubLineWindowViewModel>();
+        public AddStopTypeWindowViewModel AddStopType => ServiceLocator.Current.GetInstance<AddStopTypeWindowViewModel>();
+        public EditStopTypeWindowViewModel EditStopType => ServiceLocator.Current.GetInstance<EditStopTypeWindowViewModel>();
 
         public AddLineWindowViewModel AddLine => ServiceLocator.Current.GetInstance<AddLineWindowViewModel>();
         public EditLineWindowViewModel EditLine => ServiceLocator.Current.GetInstance<EditLineWindowViewModel>();

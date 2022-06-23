@@ -51,6 +51,11 @@ namespace DataBoard.Views
             {
                 case "AddLineWindow": new AddLineWindow().ShowDialog();break;
                 case "EditLineWindow":new EditLineWindow().ShowDialog();break;
+                case "AddStopTypeWindow": new AddStopTypeWindow().ShowDialog(); break;
+                case "EditStopTypeWindow": new EditStopTypeWindow().ShowDialog(); break;
+                case "AddSubLineWindow": new AddSubLineWindow().ShowDialog(); break;
+                case "EditSubLineWindow": new EditSubLineWindow().ShowDialog(); break;
+
                 default:
                     break;
             }
@@ -59,7 +64,15 @@ namespace DataBoard.Views
 
         public Task ShowMessage(string message, string title, string buttonText, Action afterHideCallback)
         {
-            throw new NotImplementedException();
+          var result =  MessageBox.Show(message, title,MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                return new Task(afterHideCallback);
+            }
+            else
+            {
+                return new Task(() => { });
+            }
         }
 
         public Task<bool> ShowMessage(string message, string title, string buttonConfirmText, string buttonCancelText, Action<bool> afterHideCallback)

@@ -64,7 +64,7 @@ namespace DataBoard.ViewModel
                 {
                     checkUserLoginCommand = new RelayCommand<LoginWindow>((loginWindow) =>
                     {
-                        BoardDBEntities dBEntities = new BoardDBEntities();
+                        BoardDBEntities1 dBEntities = new BoardDBEntities1();
                         UserInfo model = dBEntities.UserInfo.ToList().FirstOrDefault(item => item.Name == AppData.CurrentUser.Name && item.Password == AppData.CurrentUser.Password);
                         if (model == null)
                         {
