@@ -70,3 +70,9 @@ E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddUserInfoWindow.g.cs
 E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditUserInfoWindow.g.cs
 E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddUserInfoWindow.baml
 E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditUserInfoWindow.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddHistoryWindow.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditHistoryWindow.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\AddHistoryWindow.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Windows\EditHistoryWindow.baml
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Controls\DateTimeControl.g.cs
+E:\VS2019Work\DataBoard\DataBoard\obj\Debug\Controls\DateTimeControl.baml

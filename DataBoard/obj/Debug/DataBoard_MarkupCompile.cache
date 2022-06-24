@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\VS2019Work\DataBoard\DataBoard\App.xaml
-21-274311520
+24-268583223
 22147427515
-53362263904
+621240453467
 127-416148645
-Dictionary\ButtonDictionary.xaml;Dictionary\RadioButtonDictionary.xaml;Dictionary\TextBlockDictionary.xaml;Dictionary\TextBoxDictionary.xaml;MainWindow.xaml;Views\HistoryView.xaml;Views\IndexView.xaml;Views\LineView.xaml;Views\LoginWindow.xaml;Views\StopTypeView.xaml;Views\SubLineView.xaml;Views\UserInfoView.xaml;Windows\AddLineWindow.xaml;Windows\AddStopTypeWindow.xaml;Windows\AddSubLineWindow.xaml;Windows\AddUserInfoWindow.xaml;Windows\EditLineWindow.xaml;Windows\EditStopTypeWindow.xaml;Windows\EditSubLineWindow.xaml;Windows\EditUserInfoWindow.xaml;Windows\Window1.xaml;
+Controls\DateTimeControl.xaml;Dictionary\ButtonDictionary.xaml;Dictionary\RadioButtonDictionary.xaml;Dictionary\TextBlockDictionary.xaml;Dictionary\TextBoxDictionary.xaml;MainWindow.xaml;Views\HistoryView.xaml;Views\IndexView.xaml;Views\LineView.xaml;Views\LoginWindow.xaml;Views\StopTypeView.xaml;Views\SubLineView.xaml;Views\UserInfoView.xaml;Windows\AddHistoryWindow.xaml;Windows\AddLineWindow.xaml;Windows\AddStopTypeWindow.xaml;Windows\AddSubLineWindow.xaml;Windows\AddUserInfoWindow.xaml;Windows\EditHistoryWindow.xaml;Windows\EditLineWindow.xaml;Windows\EditStopTypeWindow.xaml;Windows\EditSubLineWindow.xaml;Windows\EditUserInfoWindow.xaml;Windows\Window1.xaml;
 
 False
 

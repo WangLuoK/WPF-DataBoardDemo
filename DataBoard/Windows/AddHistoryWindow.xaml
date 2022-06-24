@@ -1,25 +1,23 @@
 ﻿<Window
-    x:Class="DataBoard.Windows.EditUserInfoWindow"
+    x:Class="DataBoard.Windows.AddHistoryWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converter="clr-namespace:DataBoard.Converter"
+    xmlns:controls="clr-namespace:DataBoard.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DataBoard.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="EditUserInfoWindow"
-    Width="400"
-    Height="200"
+    Title="AddHistoryWindow"
+    Width="670"
+    Height="280"
     Background="#29282D"
-    DataContext="{Binding Source={StaticResource Locator}, Path=EditUserInfoWindow}"
+    DataContext="{Binding Source={StaticResource Locator}, Path=AddHistoryWindow}"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Window.Resources>
-        <converter:RoleIdToName x:Key="RoleIdToName" />
-    </Window.Resources>
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="200" />
     </WindowChrome.WindowChrome>
+
     <Border BorderBrush="White" BorderThickness="1">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -32,13 +30,15 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
 
             </Grid.RowDefinitions>
             <TextBlock
                 Margin="5"
                 FontSize="15"
                 Foreground="White"
-                Text="编辑用户信息" />
+                Text="添加产线历史信息" />
             <TextBlock
                 Grid.Row="1"
                 Grid.Column="0"
@@ -46,7 +46,7 @@
                 VerticalAlignment="Center"
                 FontSize="20"
                 Foreground="White"
-                Text="用户名：" />
+                Text="生产线：" />
             <TextBlock
                 Grid.Row="2"
                 Grid.Column="0"
@@ -54,7 +54,7 @@
                 VerticalAlignment="Center"
                 FontSize="20"
                 Foreground="White"
-                Text="密码：" />
+                Text="子线：" />
             <TextBlock
                 Grid.Row="3"
                 Grid.Column="0"
@@ -62,27 +62,45 @@
                 VerticalAlignment="Center"
                 FontSize="20"
                 Foreground="White"
-                Text="角色：" />
+                Text="停机类型：" />
             <TextBlock
-                Grid.Column="1"
+                Grid.Row="4"
+                Grid.Column="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="20"
+                Foreground="White"
+                Text="开始时间：" />
+            <TextBlock
+                Grid.Row="5"
+                Grid.Column="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="20"
+                Foreground="White"
+                Text="结束时间：" />
+            <TextBlock
+                Grid.Column="5"
                 MouseUp="TextBlock_MouseUp"
                 Style="{StaticResource TextBlockExitStyle}"
                 WindowChrome.IsHitTestVisibleInChrome="True" />
-            <TextBox
+            <ComboBox
                 Grid.Row="1"
                 Grid.Column="1"
                 Height="30"
-                Margin="5"
-                MaxLength="50"
-                Text="{Binding UserInfo.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Margin="5,5,5,5"
+                DisplayMemberPath="Name"
+                ItemsSource="{Binding AppData.RoleModels}"
+                SelectedItem="{Binding CurrentUser.RoleModel}"
                 WindowChrome.IsHitTestVisibleInChrome="True" />
-            <TextBox
+            <ComboBox
                 Grid.Row="2"
                 Grid.Column="1"
                 Height="30"
                 Margin="5"
-                MaxLength="50"
-                Text="{Binding UserInfo.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                DisplayMemberPath="Name"
+                ItemsSource="{Binding AppData.RoleModels}"
+                SelectedItem="{Binding CurrentUser.RoleModel}"
                 WindowChrome.IsHitTestVisibleInChrome="True" />
             <ComboBox
                 Grid.Row="3"
@@ -91,24 +109,34 @@
                 Margin="5"
                 DisplayMemberPath="Name"
                 ItemsSource="{Binding AppData.RoleModels}"
-                SelectedItem="{Binding UserInfo.RoleModel}"
-                Text="{Binding UserInfo.Role, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource RoleIdToName}}"
+                SelectedItem="{Binding CurrentUser.RoleModel}"
+                WindowChrome.IsHitTestVisibleInChrome="True" />
+            <controls:DateTimeControl
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="5"
+                WindowChrome.IsHitTestVisibleInChrome="True" />
+            <controls:DateTimeControl
+                Grid.Row="5"
+                Grid.Column="1"
+                Margin="5"
                 WindowChrome.IsHitTestVisibleInChrome="True" />
             <Button
-                Grid.Row="4"
+                Grid.Row="6"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Width="200"
-                Margin="5"
+                Margin="5,15,5,5"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Command="{Binding EditUserInfoCommand}"
-                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:EditUserInfoWindow}}"
-                Content="编辑"
+                Command="{Binding AddHistoryCommand}"
+                Content="添加"
                 FontSize="18"
                 Style="{StaticResource AddButtonStyle}"
                 Tag="&#xf055;"
                 WindowChrome.IsHitTestVisibleInChrome="True" />
+
+
 
         </Grid>
     </Border>

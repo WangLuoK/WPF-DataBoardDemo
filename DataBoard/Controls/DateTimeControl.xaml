@@ -1,0 +1,72 @@
+﻿<UserControl
+    x:Class="DataBoard.Controls.DateTimeControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DataBoard.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="#29282D"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                FontSize="16"
+                Foreground="White"
+                Text="年：" />
+            <ComboBox
+                x:Name="comboBoxYear"
+                Width="65"
+                SelectionChanged="comboBox_SelectionChanged" />
+            <!--  月  -->
+            <TextBlock
+                Margin="10,0,0,0"
+                FontSize="16"
+                Foreground="White"
+                Text="月：" />
+            <ComboBox
+                x:Name="comboBoxMonth"
+                Width="45"
+                SelectionChanged="comboBox_SelectionChanged" />
+            <!--  日  -->
+            <TextBlock
+                Margin="10,0,0,0"
+                FontSize="16"
+                Foreground="White"
+                Text="日：" />
+            <ComboBox
+                x:Name="comboBoxDay"
+                Width="45"
+                SelectionChanged="comboBox_SelectionChanged" />
+            <!--  时  -->
+            <TextBlock
+                Margin="10,0,0,0"
+                FontSize="16"
+                Foreground="White"
+                Text="时：" />
+            <ComboBox
+                x:Name="comboBoxHour"
+                Width="45"
+                SelectionChanged="comboBox_SelectionChanged" />
+            <!--  分  -->
+            <TextBlock
+                Margin="10,0,0,0"
+                FontSize="16"
+                Foreground="White"
+                Text="分：" />
+            <ComboBox
+                x:Name="comboBoxMinute"
+                Width="45"
+                SelectionChanged="comboBox_SelectionChanged" />
+            <!--  秒  -->
+            <TextBlock
+                Margin="10,0,0,0"
+                FontSize="16"
+                Foreground="White"
+                Text="秒：" />
+            <ComboBox
+                x:Name="comboBoxSecond"
+                Width="45"
+                SelectionChanged="comboBox_SelectionChanged" />
+        </StackPanel>
+    </Grid>
+</UserControl>

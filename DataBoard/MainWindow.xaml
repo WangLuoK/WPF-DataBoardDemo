@@ -86,12 +86,7 @@
                     Content="生产线"
                     Style="{StaticResource RadioButtonMenuStyle}"
                     Tag="&#xf0ae;" />
-                <RadioButton
-                    Uid="HistoryView"
-                    Click="RadioButton_Click"
-                    Content="停机数据"
-                    Style="{StaticResource RadioButtonMenuStyle}"
-                    Tag="&#xf0ae;" />
+
                 <RadioButton
                     Uid="SubLineView"
                     Click="RadioButton_Click"
@@ -104,6 +99,12 @@
                     Content="停机类型"
                     Style="{StaticResource RadioButtonMenuStyle}"
                     Tag="&#xf208;" />
+                <RadioButton
+                    Uid="HistoryView"
+                    Click="RadioButton_Click"
+                    Content="停机数据"
+                    Style="{StaticResource RadioButtonMenuStyle}"
+                    Tag="&#xf0ae;" />
                 <RadioButton
                     Uid="UserInfoView"
                     Click="RadioButton_Click"
